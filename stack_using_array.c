@@ -9,13 +9,14 @@ int isfull();
 void peek();
 void pop();
 void push();
+void display();
 
 int main()
 {
     int x, choice;
     do
     {
-        printf("Enter your choice\n1.PUSH\n2.POP\n3.PEEK\n");
+        printf("Enter your choice\n1.PUSH\n2.POP\n3.PEEK\n4.Display\n");
         scanf("%i", &choice);
         switch (choice)
         {
@@ -27,6 +28,9 @@ int main()
                 break;
             case 3:
                 peek();
+                break;
+            case 4:
+                display();
                 break;
             default:
                 printf("Wrong choice\n");
@@ -47,7 +51,7 @@ int isempty()
 }
 int isfull()
 {
-   if(top == MAXSIZE)
+   if(top == MAXSIZE-1)
       return 1;
    else
       return 0;
@@ -83,5 +87,12 @@ void push()
    else
    {
       printf("Could not insert data, Stack is full.\n");
+   }
+}
+void display()
+{
+   for (int i = 0; i <= top; i++)
+   {
+      printf("%i\t", stack[i]);
    }
 }
